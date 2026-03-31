@@ -35,3 +35,14 @@ class FlairTools:
     @staticmethod
     def clear() -> None:
         os.system('cls' if os.name == 'nt' else 'clear')
+
+    @staticmethod
+    def left_to_right_parse(text: str, left: str, right: str) -> str:
+        start = text.find(left)
+        if start == -1:
+            return ""
+        start += len(left)
+        end = text.find(right, start)
+        if end == -1:
+            return ""
+        return text[start:end].strip()
